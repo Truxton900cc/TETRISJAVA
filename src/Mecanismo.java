@@ -92,12 +92,6 @@ public class Mecanismo {
 				
 				break;
 				
-			case KeyEvent.VK_P:
-				
-				LaminaMatrix.Reiniciar();
-				
-				break;
-		
 		}
 		
 	}

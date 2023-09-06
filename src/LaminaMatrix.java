@@ -31,6 +31,7 @@ public class LaminaMatrix extends JPanel {
 		
 		addKeyListener(miKeyAdapter);
 		
+		addKeyListener(Controles.getResetControl());
 		
 		setFocusable(true);
 		requestFocus();
@@ -67,11 +68,20 @@ public class LaminaMatrix extends JPanel {
 				matrix[i][j].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.white));
 				}
 		}
+		
+		
 	}
 	
 	public static void QuitarControl() {
 		
 		nose.removeKeyListener(miKeyAdapter);
+		
+	}
+	
+	
+	public static void DarControl() {
+		
+		nose.addKeyListener(miKeyAdapter);
 		
 	}
 	

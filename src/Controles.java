@@ -28,6 +28,9 @@ public class Controles {
 				if(e.getExtendedKeyCode() == KeyEvent.VK_P) {
 					
 					LaminaMatrix.Reiniciar();
+					LaminaMatrix.DarControl();
+					RelojDecente.setEstado(true);
+					GameOver.setGameOver(false);
 				}
 				
 			}

@@ -4,31 +4,52 @@ public class RelojDecente extends Thread{
 	
 	public void run() {
 		
-		while(estado) {
+		System.out.println("Reloj");
+		
+		while(true){
 			
-			try {
+			if(estado == true){
 				
-				Thread.sleep(1000);
+				try {
+					
+					Thread.sleep(1000);
+					
+					Mecanismo.getMecanismo(KeyEvent.VK_DOWN);
+					
+				}catch(InterruptedException e) {
+					
+				}
 				
-				Mecanismo.getMecanismo(KeyEvent.VK_DOWN);
+			}
+			else {
 				
-			}catch(InterruptedException e) {
+				try {
+					
+					Thread.sleep(1000);
+					
+				}catch(InterruptedException e) {
+					
+				}
 				
+				System.out.println("Reinicielo Socio");
 			}
 			
 		}
 		
 	}
 	
-	public boolean OnOff(boolean e) {
+	public static boolean setEstado(boolean OnOff) {
 		
-		estado = e;
+		estado = OnOff;
 		
 		return estado;
+		
 	}
+	
 
 	static int segundos 	= 0;
 	static int minutos 		= 0;
 	static int horas 		= 0;
 	static boolean estado = true;
+	static Thread miThread;
 }

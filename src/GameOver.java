@@ -14,50 +14,70 @@ public class GameOver extends Thread {
 			
 		}
 		
-		while(gameOver) {
+		System.out.println("Checkear Casillas");
+		
+		while(true) {
 			
-			for(int i=9;i>=0;i--) {
+			if(!gameOver){
 				
-				int contador = 0;
-				
-				for(int j=9;j>=0;j--) {
+				for(int i=9;i>=0;i--) {
 					
+					int contador = 0;
 					
-					LaminaMatrix.matrix[j][i].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
-					
-					try {
+					for(int j=9;j>=0;j--) {
 						
-						Thread.sleep(10);
 						
-					}catch(InterruptedException e) {
+						//LaminaMatrix.matrix[j][i].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
 						
-					}
-					
-					LaminaMatrix.matrix[j][i].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.white));
-					
-					int azul = LaminaMatrix.matrix[j][i].getBackground().getBlue();
-					
-					if(azul == 255) {
-						
-						contador++;
-						
-						if(contador == 10) {
-							System.out.println("GAME OVER");
-
-							RelojDecente.estado = false;
-							gameOver = false;
-							LaminaMatrix.QuitarControl();
+						try {
+							
+							Thread.sleep(10);
+							
+						}catch(InterruptedException e) {
 							
 						}
-					}
-					else {
 						
-						break;
+						//LaminaMatrix.matrix[j][i].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.white));
+						
+						int azul = LaminaMatrix.matrix[j][i].getBackground().getBlue();
+						
+						if(azul == 255) {
+							
+							contador++;
+							
+							if(contador == 10) {
+								System.out.println("GAME OVER");
+	
+								RelojDecente.setEstado(false);
+								LaminaMatrix.QuitarControl();
+								
+								gameOver = true;
+								
+							}
+						}
+						else {
+							
+							break;
+							
+						}
 						
 					}
+				}
+				
+			}else {
+				
+				try {
+					
+					Thread.sleep(2000);
+					
+				}catch(InterruptedException e) {
 					
 				}
+				
+				System.out.println("Perdio Lok .l.");
 			}
+			
+				
 		}
 		
 		
@@ -65,12 +85,16 @@ public class GameOver extends Thread {
 		
 	}
 	
-	public static void setGameOver(boolean a) {
+	
+	public static boolean setGameOver(boolean stado) {
 		
-		gameOver = a;
+		gameOver = stado;
+		
+		return gameOver;
 		
 	}
 	
-	static boolean gameOver = true;
+	static boolean gameOver = false;
+	
 	
 }
