@@ -4,16 +4,17 @@ public class Mecanismo implements FichasEnVector{
 
 	public static void getMecanismo(int code) {
 		
+			
 		switch(code) {
 		
 			case KeyEvent.VK_DOWN:
 				
 				System.out.println("ABAJO");
 				
-				int a=4;//numeroDeFicha
+				//int a=0;//numeroDeFicha
 				
 				for(int i=0;i<=3;i++) {
-					LaminaMatrix.DesDibujar(fila+CajaDeFichas[a][i], columna+CajaDeFichas[a][7-i]);
+					LaminaMatrix.DesDibujar(fila+CajaDeFichas[numeroFicha][i], columna+CajaDeFichas[numeroFicha][7-i]);
 				}
 				
 				int azulAbajo = 0;
@@ -35,15 +36,16 @@ public class Mecanismo implements FichasEnVector{
 					
 					
 					for(int i=0;i<=3;i++) {
-						LaminaMatrix.Fijar(fila+CajaDeFichas[a][i], columna+CajaDeFichas[a][7-i]);
+						LaminaMatrix.Fijar(fila+CajaDeFichas[numeroFicha][i], columna+CajaDeFichas[numeroFicha][7-i]);
 					}
 					
 					fila = 0;
+					numeroFicha = (int) (Math.random()*4);	
 					
 				}
 				
 				for(int i=0;i<=3;i++) {
-					LaminaMatrix.Dibujar(fila+CajaDeFichas[a][i], columna+CajaDeFichas[a][7-i]);
+					LaminaMatrix.Dibujar(fila+CajaDeFichas[numeroFicha][i], columna+CajaDeFichas[numeroFicha][7-i]);
 				}
 				
 				
@@ -54,28 +56,28 @@ public class Mecanismo implements FichasEnVector{
 				
 				System.out.println("IZQUIERDA");
 				
-				int azulIzquierda=0;
-				
-				if(columna == 0) {
-					
-					azulIzquierda = LaminaMatrix.matrix[fila][columna].getBackground().getBlue();
-				}
-				else {
-					
-					azulIzquierda = LaminaMatrix.matrix[fila][columna-1].getBackground().getBlue();
+				for(int i=0;i<=3;i++) {
+					LaminaMatrix.DesDibujar(fila+CajaDeFichas[numeroFicha][i], columna+CajaDeFichas[numeroFicha][7-i]);
 				}
 				
+				int azulLeft = 0;
 				
-				if(columna>0 && azulIzquierda!=255) {
-					
-					LaminaMatrix.DesDibujar(fila,columna);
+				if(columna==0) {
+					azulLeft = LaminaMatrix.matrix[fila][columna].getBackground().getBlue();
+				}
+				else{
+					azulLeft = LaminaMatrix.matrix[fila][columna-1].getBackground().getBlue();
+				}
+				
+				if(columna>0 && azulLeft != 255) {
 					
 					columna--;
-					
-					LaminaMatrix.Dibujar(fila, columna);
-					
 				}
 				
+				
+				for(int i=0;i<=3;i++) {
+					LaminaMatrix.Dibujar(fila+CajaDeFichas[numeroFicha][i], columna+CajaDeFichas[numeroFicha][7-i]);
+				}
 				
 				break;
 				
@@ -83,23 +85,29 @@ public class Mecanismo implements FichasEnVector{
 				
 				System.out.println("DERECHA");
 				
-				int azulDerecha=0;
+				//int c=0;//numeroDeFicha
 				
-				if(columna == 9) {
-					azulDerecha = LaminaMatrix.matrix[fila][columna].getBackground().getBlue();
-				}
-				else {
-					azulDerecha = LaminaMatrix.matrix[fila][columna+1].getBackground().getBlue();
+				for(int i=0;i<=3;i++) {
+					LaminaMatrix.DesDibujar(fila+CajaDeFichas[numeroFicha][i], columna+CajaDeFichas[numeroFicha][7-i]);
 				}
 				
-				if(columna<9 && azulDerecha != 255) {
-					
-					LaminaMatrix.DesDibujar(fila,columna);
+				int azulRight = 0;
+				
+				if(columna==8) {
+					azulRight = LaminaMatrix.matrix[fila][columna].getBackground().getBlue();
+				}
+				else{
+					azulRight = LaminaMatrix.matrix[fila][columna+1].getBackground().getBlue();
+				}
+				
+				if(columna<7 && azulRight != 255) {
 					
 					columna++;
-					
-					LaminaMatrix.Dibujar(fila, columna);
-					
+				}
+				
+				
+				for(int i=0;i<=3;i++) {
+					LaminaMatrix.Dibujar(fila+CajaDeFichas[numeroFicha][i], columna+CajaDeFichas[numeroFicha][7-i]);
 				}
 				
 				break;
@@ -111,4 +119,5 @@ public class Mecanismo implements FichasEnVector{
 	static int fila    = 0;
 	static int columna = 0;
 	static int limite = 9;
+	static int numeroFicha =0;
 }
