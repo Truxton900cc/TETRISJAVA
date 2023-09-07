@@ -1,6 +1,6 @@
 import java.awt.event.KeyEvent;
 
-public class Mecanismo {
+public class Mecanismo implements FichasEnVector{
 
 	public static void getMecanismo(int code) {
 		
@@ -8,39 +8,51 @@ public class Mecanismo {
 		
 			case KeyEvent.VK_DOWN:
 				
-				System.out.println("Abajo");
+				System.out.println("ABAJO");
 				
-				LaminaMatrix.DesDibujar(fila,columna);
+				int a=4;//numeroDeFicha
+				
+				for(int i=0;i<=3;i++) {
+					LaminaMatrix.DesDibujar(fila+CajaDeFichas[a][i], columna+CajaDeFichas[a][7-i]);
+				}
 				
 				int azulAbajo = 0;
 				
-				if(fila==9) {
+				if(fila==8) {
 					azulAbajo = LaminaMatrix.matrix[fila][columna].getBackground().getBlue();
 				}
 				else{
-					azulAbajo = LaminaMatrix.matrix[fila+1][columna].getBackground().getBlue();
+					azulAbajo = LaminaMatrix.matrix[fila+2][columna].getBackground().getBlue();
 				}
 				
 				
 				
-				if(fila<9 && azulAbajo!=255) {
+				if(fila<8 && azulAbajo!=255) {
 					
 					fila++;
 				}
 				else {
-					LaminaMatrix.Fijar(fila,columna);
+					
+					
+					for(int i=0;i<=3;i++) {
+						LaminaMatrix.Fijar(fila+CajaDeFichas[a][i], columna+CajaDeFichas[a][7-i]);
+					}
 					
 					fila = 0;
 					
 				}
 				
-				LaminaMatrix.Dibujar(fila, columna);
+				for(int i=0;i<=3;i++) {
+					LaminaMatrix.Dibujar(fila+CajaDeFichas[a][i], columna+CajaDeFichas[a][7-i]);
+				}
+				
+				
 				
 				break;
 				
 			case KeyEvent.VK_LEFT:
 				
-				System.out.println("Izquierda");
+				System.out.println("IZQUIERDA");
 				
 				int azulIzquierda=0;
 				
@@ -69,7 +81,7 @@ public class Mecanismo {
 				
 			case KeyEvent.VK_RIGHT:
 				
-				System.out.println("Derecha");
+				System.out.println("DERECHA");
 				
 				int azulDerecha=0;
 				
