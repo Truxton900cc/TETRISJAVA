@@ -27,17 +27,17 @@ public class GameOver extends Thread {
 					for(int j=9;j>=0;j--) {
 						
 						
-						//LaminaMatrix.matrix[j][i].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
+						LaminaMatrix.matrix[j][i].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
 						
 						try {
 							
-							Thread.sleep(10);
+							Thread.sleep(1000);
 							
 						}catch(InterruptedException e) {
 							
 						}
 						
-						//LaminaMatrix.matrix[j][i].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.white));
+						LaminaMatrix.matrix[j][i].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.white));
 						
 						int azul = LaminaMatrix.matrix[j][i].getBackground().getBlue();
 						

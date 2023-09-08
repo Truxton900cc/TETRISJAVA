@@ -19,16 +19,24 @@ public class Mecanismo implements FichasEnVector{
 				
 				int azulAbajo = 0;
 				
-				if(fila==8) {
+				if(fila==9) {
 					azulAbajo = LaminaMatrix.matrix[fila][columna].getBackground().getBlue();
+					azulAbajo += LaminaMatrix.matrix[fila][columna].getBackground().getGreen();
+					azulAbajo += LaminaMatrix.matrix[fila][columna].getBackground().getRed();
 				}
 				else{
-					azulAbajo = LaminaMatrix.matrix[fila+2][columna].getBackground().getBlue();
+					
+					for(int i=0;i<=5;i++) {
+						azulAbajo =  LaminaMatrix.matrix[fila+EspacioFicha1[0][i]][columna+EspacioFicha1[0][5-i]].getBackground().getBlue();
+						azulAbajo += LaminaMatrix.matrix[fila+EspacioFicha1[0][i]][columna+EspacioFicha1[0][5-i]].getBackground().getGreen();
+						azulAbajo += LaminaMatrix.matrix[fila+EspacioFicha1[0][i]][columna+EspacioFicha1[0][5-i]].getBackground().getRed();
+					}
+					
 				}
 				
+				System.out.println(azulAbajo);
 				
-				
-				if(fila<8 && azulAbajo!=255) {
+				if(azulAbajo==0 ) {
 					
 					fila++;
 				}
@@ -41,6 +49,7 @@ public class Mecanismo implements FichasEnVector{
 					
 					fila = 0;
 					numeroFicha = (int) (Math.random()*4);	
+					LaminaMatrix.setColor(numeroFicha+1);
 					
 				}
 				

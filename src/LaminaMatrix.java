@@ -42,9 +42,8 @@ public class LaminaMatrix extends JPanel {
 	
 	public static void Dibujar(int fila, int columna) {
 		
-		matrix[fila][columna].setBackground(Color.blue);
+		matrix[fila][columna].setBackground(colorFicha);
 		
-
 	}
 	public static void DesDibujar(int fila, int columna) {
 		
@@ -54,7 +53,7 @@ public class LaminaMatrix extends JPanel {
 	
 	public static void Fijar(int fila, int columna) {
 		
-		matrix[fila][columna].setBackground(Color.blue);
+		matrix[fila][columna].setBackground(colorFicha);
 
 	}
 	
@@ -85,11 +84,19 @@ public class LaminaMatrix extends JPanel {
 		
 	}
 	
+	public static void setColor(int color) {
+		
+		colorFicha =  colores[color];
+		
+	}
+	
 	static JPanel matrix[][] = new JPanel[10][10];
 	
 	static JPanel nose = new JPanel();
 	
 	static KeyAdapter miKeyAdapter;
 	
+	static Color[] colores = {Color.blue,Color.red,Color.green,Color.orange,Color.yellow};
 	 
+	static Color colorFicha = Color.blue;
 }
