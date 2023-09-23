@@ -20,18 +20,18 @@ public class GameOver extends Thread {
 			
 			if(!gameOver){
 				
-				for(int i=9;i>=0;i--) {
+				for(int i=0;i<=9;i++) {
 					
 					int contador = 0;
 					
-					for(int j=9;j>=0;j--) {
+					for(int j=0;j<=9;j++) {
 						
 						
 						LaminaMatrix.matrix[j][i].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
 						
 						try {
 							
-							Thread.sleep(1000);
+							Thread.sleep(100);
 							
 						}catch(InterruptedException e) {
 							
@@ -64,14 +64,14 @@ public class GameOver extends Thread {
 					}
 				}
 				
-			}else {
+				}else {
 				
-				try {
-					
-					Thread.sleep(2000);
-					
-				}catch(InterruptedException e) {
-					
+					try {
+						
+						Thread.sleep(2000);
+						
+					}catch(InterruptedException e) {
+						
 				}
 				
 				System.out.println("Perdio Lok .l.");

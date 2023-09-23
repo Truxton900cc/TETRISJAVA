@@ -10,7 +10,7 @@ public class LaminaMatrix extends JPanel {
 
 	public LaminaMatrix() {
 		
-		setLayout( new GridLayout(10,10));
+		setLayout( new GridLayout(11,10));
 		setPreferredSize(new Dimension(400,400));
 		
 		for(int i=0;i<10;i++) {
