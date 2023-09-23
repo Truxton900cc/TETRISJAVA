@@ -47,7 +47,6 @@ public class Mecanismo implements FichasEnVector{
 				}
 				else {
 					
-					
 					for(int i=0;i<=3;i++) {
 						LaminaMatrix.Fijar(fila+CajaDeFichas[numeroFicha][i], columna+CajaDeFichas[numeroFicha][7-i]);
 					}
