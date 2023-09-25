@@ -22,7 +22,7 @@ public class Mecanismo implements FichasEnVector{
 				
 				int F = 0;
 				
-				if(fila==8 ) {
+				if(fila == limiteInferior) {
 					
 					azulAbajo = LaminaMatrix.matrix[fila][columna].getBackground().getBlue();
 					azulAbajo += LaminaMatrix.matrix[fila][columna].getBackground().getGreen();
@@ -39,9 +39,10 @@ public class Mecanismo implements FichasEnVector{
 				
 				System.out.println(azulAbajo);
 				
-				if(fila<=limiteInferior && azulAbajo==0 && F == 0) {
+				System.out.println("fila antes de sumar: "+fila);
+				
+				if(fila<limiteInferior && azulAbajo==0 && F == 0 && fila<LaminaMatrix.matrix.length) {
 					
-					System.out.println("fila antes de sumar: "+fila);
 					fila++;
 					System.out.println("fila despues de sumar: "+fila);
 				}
@@ -160,7 +161,12 @@ public class Mecanismo implements FichasEnVector{
 	
 	static int fila    = 0;
 	static int columna = 0;
+	
+	final static int checkearAbajo  = 7;
+	final static int limiteInferior = 9;
+	
+	
 	static int numeroFicha    = 1;
-	static int checkearAbajo  = 7;
-	static int limiteInferior = 9;
+	
+	
 }
