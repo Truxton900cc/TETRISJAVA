@@ -168,5 +168,5 @@ public class Mecanismo implements FichasEnVector{
 	
 	static int numeroFicha    = 1;
 	
-	
+	//Hasta aqui funciona me falta un pasito mas 
 }
