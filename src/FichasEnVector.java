@@ -1,7 +1,7 @@
 
 public interface FichasEnVector {
 	
-	int[][] CajaDeFichas = 
+	final int[][] CajaDeFichas = 
 			
 		{	{0,1,1,1,2,1,0,0},
 			{0,0,0,0,3,2,1,0},
@@ -38,7 +38,7 @@ public interface FichasEnVector {
 		};
 	
 	
-	int[/*Ficha*/][/*Espacio*/][/*Valor De Espacio*/] CajaDeEspacios =
+	final int[/*Ficha*/][/*Espacio*/][/*Valor De Espacio*/] CajaDeEspacios =
 		{
 			{	//Ficha 1
 				{2,2,2,2,1,0}, //Checkear Abajo

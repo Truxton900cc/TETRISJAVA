@@ -41,7 +41,7 @@ public class Mecanismo implements FichasEnVector{
 				
 				System.out.println("fila antes de sumar: "+fila);
 				
-				if(fila<limiteInferior && azulAbajo==0 && F == 0 && fila<LaminaMatrix.matrix.length) {
+				if(fila<limiteInferior && azulAbajo==0 && F == 0 ) {
 					
 					fila++;
 					System.out.println("fila despues de sumar: "+fila);
@@ -132,7 +132,7 @@ public class Mecanismo implements FichasEnVector{
 						
 							try {
 								E+=LaminaMatrix.matrix[fila+EspacioFicha1[2][i]][columna+EspacioFicha1[2][3-i]].getBackground().getBlue();
-								LaminaMatrix.matrix[fila+EspacioFicha1[2][i]][columna+EspacioFicha1[2][3-i]].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
+								//LaminaMatrix.matrix[fila+EspacioFicha1[2][i]][columna+EspacioFicha1[2][3-i]].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
 							}catch(ArrayIndexOutOfBoundsException e) {
 								
 							}
@@ -162,11 +162,11 @@ public class Mecanismo implements FichasEnVector{
 	static int fila    = 0;
 	static int columna = 0;
 	
-	final static int checkearAbajo  = 7;
-	final static int limiteInferior = 9;
+	static int checkearAbajo  = 5;
+	static int limiteInferior = 8;
 	
 	
-	static int numeroFicha    = 1;
+	static int numeroFicha    = 0;
 	
 	//Hasta aqui funciona me falta un pasito mas 
 }
