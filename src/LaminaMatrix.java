@@ -10,10 +10,10 @@ public class LaminaMatrix extends JPanel {
 
 	public LaminaMatrix() {
 		
-		setLayout( new GridLayout(10,10));
+		setLayout( new GridLayout(11,10));
 		setPreferredSize(new Dimension(400,400));
 		
-		for(int i=0;i<10;i++) {
+		for(int i=0;i<11;i++) {
 			
 			for(int j=0;j<10;j++) {
 				
@@ -26,6 +26,13 @@ public class LaminaMatrix extends JPanel {
 			}
 			
 		}
+		
+		for(int i = 0; i<10 ; i++) {
+			
+			matrix[10][i].setBackground(Color.blue);
+			
+		}
+		
 		
 		miKeyAdapter = Controles.getControl();
 		
@@ -49,12 +56,6 @@ public class LaminaMatrix extends JPanel {
 		
 		matrix[fila][columna].setBackground(Color.black);
 		
-	}
-	
-	public static void Fijar(int fila, int columna) {
-		
-		matrix[fila][columna].setBackground(colorFicha);
-
 	}
 	
 	public static void Reiniciar() {
@@ -90,7 +91,7 @@ public class LaminaMatrix extends JPanel {
 		
 	}
 	
-	static JPanel matrix[][] = new JPanel[10][10];
+	static JPanel matrix[][] = new JPanel[11][10];
 	
 	static JPanel nose = new JPanel();
 	

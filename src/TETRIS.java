@@ -14,8 +14,8 @@ public class TETRIS {
 			
 			});
 			
-			reloj.start();
-			gameOver.start();
+			//reloj.start();
+			//gameOver.start();
 		
 	}
 	

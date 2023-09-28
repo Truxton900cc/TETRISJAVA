@@ -14,95 +14,47 @@ public class Mecanismo implements FichasEnVector{
 				
 				System.out.println("ABAJO");
 				
-				for(int i=0;i<=3;i++) {
-					LaminaMatrix.DesDibujar(fila+CajaDeFichas[numeroFicha][i], columna+CajaDeFichas[numeroFicha][7-i]);
-				}
+				boolean EspaciAbajo = false;
 				
-				int azulAbajo = 0;
 				
-				int F = 0;
 				
-				if(fila == limiteInferior) {
+				EspaciAbajo = VerificarEspacio(fila, columna, verificar, ficha, indice, limiteInf);
+				
+				if(EspaciAbajo == true) {
 					
-					azulAbajo = LaminaMatrix.matrix[fila][columna].getBackground().getBlue();
-					azulAbajo += LaminaMatrix.matrix[fila][columna].getBackground().getGreen();
-					azulAbajo += LaminaMatrix.matrix[fila][columna].getBackground().getRed();
-				}
-				else{
-					
-					for(int i =0;i<=3;i++) {
-						
-						F+=LaminaMatrix.matrix[fila+CajaDeEspacios[numeroFicha][0][i]][columna+CajaDeEspacios[numeroFicha][0][checkearAbajo-i]].getBackground().getBlue();
-						
-					}
-				}
-				
-				System.out.println(azulAbajo);
-				
-				System.out.println("fila antes de sumar: "+fila);
-				
-				if(fila<limiteInferior && azulAbajo==0 && F == 0 ) {
+					Borrar(fila,columna,ficha);
 					
 					fila++;
-					System.out.println("fila despues de sumar: "+fila);
+					
+					Dibujar(fila,columna,ficha);
+					
 				}
 				else {
 					
-					for(int i=0;i<=3;i++) {
-						LaminaMatrix.Fijar(fila+CajaDeFichas[numeroFicha][i], columna+CajaDeFichas[numeroFicha][7-i]);
-					}
-					
-					fila = 0;
-					//numeroFicha = (int) (Math.random()*4);	
-					//LaminaMatrix.setColor(numeroFicha);
-					
+					Fijar(fila,columna,ficha);
+						
 				}
-				
-				for(int i=0;i<=3;i++) {
-					LaminaMatrix.Dibujar(fila+CajaDeFichas[numeroFicha][i], columna+CajaDeFichas[numeroFicha][7-i]);
-				}
-				
-				
 				
 				break;
 				
 			case KeyEvent.VK_LEFT:
 				
 				System.out.println("IZQUIERDA");
-				
-				for(int i=0;i<=3;i++) {
-					LaminaMatrix.DesDibujar(fila+CajaDeFichas[numeroFicha][i], columna+CajaDeFichas[numeroFicha][7-i]);
-				}
-				
-				int azulLeft = 0;
-				
-				int J = 0;
-				
-				if(columna == 0) {
-					
-					azulLeft = LaminaMatrix.matrix[fila][columna].getBackground().getBlue();
-					azulLeft += LaminaMatrix.matrix[fila][columna].getBackground().getGreen();
-					azulLeft += LaminaMatrix.matrix[fila][columna].getBackground().getRed();
-					
-				}else {
-					
-					for(int i = 0;i<=1;i++) {
-						
-						J+=LaminaMatrix.matrix[fila+EspacioFicha1[1][i]][columna+EspacioFicha1[1][3-i]].getBackground().getBlue();
 	
-						System.out.println(columna);
-					}
-					
-				}
+				boolean EspacioIzquierda = false;
 				
-				if(columna>0 && azulLeft != 255 && J==0) {
+				EspacioIzquierda = VerificarIzquierda(fila, columna, verificarIzq, ficha, indiceIzq, limiteIzq);
+				
+				if(columna>limiteIzq && EspacioIzquierda) {
+					
+					Borrar(fila,columna,ficha);
 					
 					columna--;
-				}
-				
-				
-				for(int i=0;i<=3;i++) {
-					LaminaMatrix.Dibujar(fila+CajaDeFichas[numeroFicha][i], columna+CajaDeFichas[numeroFicha][7-i]);
+					
+					Dibujar(fila,columna,ficha);
+					
+					System.out.println(columna);
+					
 				}
 				
 				break;
@@ -111,62 +63,165 @@ public class Mecanismo implements FichasEnVector{
 				
 				System.out.println("DERECHA");
 				
-				//int c=0;//numeroDeFicha
 				
-				for(int i=0;i<=3;i++) {
-					LaminaMatrix.DesDibujar(fila+CajaDeFichas[numeroFicha][i], columna+CajaDeFichas[numeroFicha][7-i]);
-				}
+				boolean EspacioDerecha = false;
 				
-				int azulRight = 0;
-				int E = 0;
+				EspacioDerecha = VerificarDerecha(fila, columna, verificarDer, ficha, indiceDer, limiteDer);
 				
-				if(columna==8) {
-					azulRight =  LaminaMatrix.matrix[fila][columna].getBackground().getBlue();
-					azulRight += LaminaMatrix.matrix[fila][columna].getBackground().getGreen();
-					azulRight += LaminaMatrix.matrix[fila][columna].getBackground().getRed();
-				}
-				else{
-					azulRight = LaminaMatrix.matrix[fila][columna+1].getBackground().getBlue();
+				if(limiteDer>columna && EspacioDerecha == true) {
 					
-						for(int i = 0;i<=1;i++) {
-						
-							try {
-								E+=LaminaMatrix.matrix[fila+EspacioFicha1[2][i]][columna+EspacioFicha1[2][3-i]].getBackground().getBlue();
-								//LaminaMatrix.matrix[fila+EspacioFicha1[2][i]][columna+EspacioFicha1[2][3-i]].setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
-							}catch(ArrayIndexOutOfBoundsException e) {
-								
-							}
-							
-							
-		
-							System.out.println(columna);
-					}
-				}
-				
-				if(columna<7 && azulRight != 255 && E==0) {
+					Borrar(fila,columna,ficha);
 					
 					columna++;
+					
+					Dibujar(fila,columna,ficha);
+					
+					System.out.println(columna);
 				}
 				
-				
-				for(int i=0;i<=3;i++) {
-					LaminaMatrix.Dibujar(fila+CajaDeFichas[numeroFicha][i], columna+CajaDeFichas[numeroFicha][7-i]);
-				}
-				
-				break;
-				
+				break;		
+		}
+	
+	}
+	
+	public static void Borrar(int Fila, int Columna, int ficha) {
+		
+		for(int i = 0; i<=3 ; i++ ) {
+			
+			LaminaMatrix.DesDibujar( Fila + CajaDeFichas[ficha][i] , Columna + CajaDeFichas[ficha][7-i]);
+			
 		}
 		
 	}
 	
-	static int fila    = 0;
-	static int columna = 0;
+	public static boolean VerificarEspacio(int Fila, int Columna, int Verificaciones , int Ficha, int posiciones, int limite) {
+		
+		boolean espacio = false ;
+		
+		int color = 0;
+		
+		if(Fila != limite ) {
+			
+			for(int i = 0; i <= Verificaciones; i++) {
+				
+				color += LaminaMatrix.matrix[ Fila + CajaDeEspacios[Ficha] [0] [i]  ][ Columna + CajaDeEspacios[Ficha] [0] [posiciones-i] ].getBackground().getBlue();
+				System.out.println(color);
+			}
+			
+		}
+		
+		if(Fila != limite && color == 0)
+		{
+			espacio = true;
+		}
+		else {
+			
+			espacio = false;
+		
+		}
+		
+		return espacio;
+	}
 	
-	static int checkearAbajo  = 5;
-	static int limiteInferior = 8;
+	public static boolean VerificarIzquierda(int Fila, int Columna, int Verificaciones , int Ficha, int posiciones, int limite) {
+		
+		boolean espacio = false;
+		
+		int color = 0;
+		
+		if(Columna != limite ) {
+			
+			for(int i = 0; i <= Verificaciones; i++) {
+				
+				color += LaminaMatrix.matrix[ Fila + CajaDeEspacios[Ficha] [1] [i]  ][ Columna + CajaDeEspacios[Ficha] [1] [posiciones-i] ].getBackground().getBlue();
+				System.out.println(color);
+			}
+			
+			if(color == 0)
+			{
+				espacio = true;
+			}
+			else {
+				
+				espacio = false;
+			
+			}
+		}
+		
+		return  espacio;
+		
+	}
+	
+	public static boolean VerificarDerecha(int Fila, int Columna, int Verificaciones , int Ficha, int posiciones, int limite) {
+		
+		boolean espacio = false;
+		
+		int color = 0;
+		
+		if(Columna != limite ) {
+			
+			for(int i = 0; i <= Verificaciones; i++) {
+				
+				color += LaminaMatrix.matrix[ Fila + CajaDeEspacios[Ficha] [2] [i]  ][ Columna + CajaDeEspacios[Ficha] [2] [posiciones-i] ].getBackground().getBlue();
+				System.out.println(color);
+			}
+			
+			if(color == 0)
+			{
+				espacio = true;
+			}
+			else {
+				
+				espacio = false;
+			
+			}
+		}
+		
+		return  espacio;
+		
+	}
+
+	
+	public static void Dibujar(int Fila, int Columna, int ficha) {
+		
+		for(int i = 0; i<=3 ; i++ ) {
+			
+			LaminaMatrix.Dibujar( Fila + CajaDeFichas[ficha][i] , Columna + CajaDeFichas[ficha][7-i]);
+			
+		}
+		
+	}
+	
+	public static void Fijar(int Fila, int Columna, int ficha) {
+		
+		for(int i = 0; i<=3 ; i++ ) {
+			
+			LaminaMatrix.Dibujar( Fila + CajaDeFichas[ficha][i] , Columna + CajaDeFichas[ficha][7-i]);
+			
+		}
+	
+		fila = 0;
+		columna = 0;
+	}
 	
 	
-	static int numeroFicha    = 0;
+	
+	static int fila    		= 0;
+	static int columna 		= 0;
+	static int ficha   		= 2;
+	static int verificar    = 1;
+	static int indice		= 3;
+	static int limiteInf    = 7;
+	
+	//Verificar Izquierda
+	static int verificarIzq = 2;
+	static int indiceIzq    = 5;
+	static int limiteIzq    = 0;
+	
+	//Verifica Derecha
+	static int verificarDer = 2;
+	static int indiceDer    = 5;
+	static int limiteDer    = 8;
 	
 	//Hasta aqui funciona me falta un pasito mas 
 }
