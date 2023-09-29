@@ -224,4 +224,5 @@ public class Mecanismo implements FichasEnVector{
 	static int limiteDer    = 7;
 	
 	//Hasta aqui funciona me falta un pasito mas 
+	//Master Alterno
 }
