@@ -208,20 +208,20 @@ public class Mecanismo implements FichasEnVector{
 	
 	static int fila    		= 0;
 	static int columna 		= 0;
-	static int ficha   		= 2;
-	static int verificar    = 1;
-	static int indice		= 3;
-	static int limiteInf    = 7;
+	static int ficha   		= 4;
+	static int verificar    = 2;
+	static int indice		= 5;
+	static int limiteInf    = 8;
 	
 	//Verificar Izquierda
-	static int verificarIzq = 2;
-	static int indiceIzq    = 5;
+	static int verificarIzq = 1;
+	static int indiceIzq    = 3;
 	static int limiteIzq    = 0;
 	
 	//Verifica Derecha
-	static int verificarDer = 2;
-	static int indiceDer    = 5;
-	static int limiteDer    = 8;
+	static int verificarDer = 1;
+	static int indiceDer    = 3;
+	static int limiteDer    = 7;
 	
 	//Hasta aqui funciona me falta un pasito mas 
 }
