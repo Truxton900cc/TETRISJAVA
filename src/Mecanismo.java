@@ -32,6 +32,7 @@ public class Mecanismo implements FichasEnVector{
 				else {
 					
 					Fijar(fila,columna,ficha);
+					CambiarFicha();
 						
 				}
 				
@@ -117,6 +118,7 @@ public class Mecanismo implements FichasEnVector{
 		else {
 			
 			espacio = false;
+			
 		
 		}
 		
@@ -204,7 +206,125 @@ public class Mecanismo implements FichasEnVector{
 		columna = 0;
 	}
 	
-	
+	public static void CambiarFicha() {
+		
+		ficha = (int) (Math.random()*4 + 0);
+		
+		LaminaMatrix.setColor(ficha);
+		
+		
+		switch(ficha) {
+		
+			case 0:
+				
+				fila    		= 0;
+				columna 		= 0;
+				ficha   		= 0;
+				verificar    	= 2;
+				indice			= 5;
+				limiteInf   	= 8;
+				
+				//Verificar Izquierda
+				verificarIzq 	= 1;
+				indiceIzq    	= 3;
+				limiteIzq    	= 0;
+				
+				//Verifica Derecha
+				verificarDer 	= 1;
+				indiceDer    	= 3;
+				limiteDer    	= 7;
+				
+				break;
+		
+			case 1:
+				
+				fila    		= 0;
+				columna 		= 0;
+				ficha   		= 1;
+				verificar    	= 3;
+				indice			= 7;
+				limiteInf   	= 9;
+				
+				//Verificar Izquierda
+				verificarIzq 	= 0;
+				indiceIzq    	= 1;
+				limiteIzq    	= 0;
+				
+				//Verifica Derecha
+				verificarDer 	= 0;
+				indiceDer    	= 1;
+				limiteDer    	= 6;
+				
+				break;
+				
+			case 2:
+				
+				fila    		= 0;
+				columna 		= 0;
+				ficha   		= 2;
+				verificar    	= 1;
+				indice			= 3;
+				limiteInf   	= 7;
+				
+				//Verificar Izquierda
+				verificarIzq 	= 2;
+				indiceIzq    	= 5;
+				limiteIzq    	= 0;
+				
+				//Verifica Derecha
+				verificarDer 	= 2;
+				indiceDer    	= 5;
+				limiteDer    	= 8;
+				
+				break;
+				
+			case 3:
+				
+				fila    		= 0;
+				columna 		= 0;
+				ficha   		= 3;
+				verificar    	= 1;
+				indice			= 3;
+				limiteInf   	= 8;
+				
+				//Verificar Izquierda
+				verificarIzq 	= 1;
+				indiceIzq    	= 3;
+				limiteIzq    	= 0;
+				
+				//Verifica Derecha
+				verificarDer 	= 1;
+				indiceDer    	= 3;
+				limiteDer    	= 8;
+				
+				break;
+				
+			case 4:
+				
+				fila    		= 0;
+				columna 		= 0;
+				ficha   		= 4;
+				verificar    	= 2;
+				indice			= 5;
+				limiteInf   	= 8;
+				
+				//Verificar Izquierda
+				verificarIzq 	= 1;
+				indiceIzq    	= 3;
+				limiteIzq    	= 0;
+				
+				//Verifica Derecha
+				verificarDer 	= 1;
+				indiceDer    	= 3;
+				limiteDer    	= 7;
+				
+				break;
+			
+			default:
+				break;
+		}
+		
+	}
 	
 	static int fila    		= 0;
 	static int columna 		= 0;
@@ -225,4 +345,7 @@ public class Mecanismo implements FichasEnVector{
 	
 	//Hasta aqui funciona me falta un pasito mas 
 	//Master Alterno
+	
+	
+	
 }

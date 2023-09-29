@@ -96,8 +96,16 @@ public class LaminaMatrix extends JPanel {
 	static JPanel nose = new JPanel();
 	
 	static KeyAdapter miKeyAdapter;
-	
-	static Color[] colores = {Color.blue,Color.red,Color.green,Color.orange,Color.yellow};
 	 
 	static Color colorFicha = Color.blue;
+	
+	static Color[] colores = {
+			new Color(15,10,180), 
+			new Color(150,10,1),
+			new Color(15,180,1),
+			new Color(200,100,1),
+			new Color(210,200,1)
+			} ;
+	 
+	
 }
